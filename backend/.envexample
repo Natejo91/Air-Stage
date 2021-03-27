@@ -1,0 +1,7 @@
+PORT=5000
+DB_USERNAME=<your username>
+DB_PASSWORD=<your password>
+DB_DATABASE=<your database name>
+DB_HOST=localhost
+JWT_SECRET=<Special JWT secret>
+JWT_EXPIRES_IN=<Any amount of time in milliseconds>
