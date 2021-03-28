@@ -1,5 +1,5 @@
 .navBar {
-    position: fixed;
+    position: relative;
     z-index: 100;
     list-style-type: none;
     display: flex;
@@ -10,9 +10,9 @@
     border-radius: 20px;
     display: flex;
     align-items: center;
-    position: relative;
-    top: 10px;
-    left: 50%;
+    position: fixed;
+    top: 30px;
+    left: 15%;
     padding: 20px;
     color: white;
     font-size: 40px;
@@ -20,26 +20,39 @@
     text-decoration: none;
 }
 
-#homeLogin,
+#homeLink:hover {
+    color: rgb(73, 16, 16);
+    transition: .5s;
+}
+
 #homeSignup {
-    position: relative;
+    position: fixed;
     color: white;
     font-weight: bold;
     font-size: 30px;
     text-decoration: none;
+    list-style-type: none;
+    padding-right: 20px;
+    left: 81%;
+}
+
+#homeLogin {
+    position: fixed;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+    list-style-type: none;
+    left: 75%;
 }
 
 #homeLogin:hover,
 #homeSignup:hover {
-
+    color: rgb(73, 16, 16);
+    transition: .5s;
 }
 
 .loginSignup {
-    position: relative;
-    display: flex;
-    align-items: center;
-    top: 10px;
-    left: 210%;
     background-color: black;
     border-radius: 20px;
     padding: 20px;
@@ -50,5 +63,10 @@
     left: 3%;
     height: 80px;
     width: 90px;
+}
 
+.navLoginSignup {
+    position: absolute;
+    display: flex;
+    top: 65px;
 }

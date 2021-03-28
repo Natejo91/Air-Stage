@@ -1,0 +1,28 @@
+.loginForm {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 5px 5px rgba(22, 22, 24, 0.6);
+    border-radius: 15px;
+    top: 300px;
+    left: 194%;
+    padding: 115px;
+    width: 50%;
+    list-style-type: none;
+    z-index: 150;
+}
+
+.loginContainer {
+    position: relative;
+    max-width: 20%;
+    max-height: 710px;
+}
+
+#loginTitle {
+    position: relative;
+    bottom: 50px;
+    right: 20px;
+}
