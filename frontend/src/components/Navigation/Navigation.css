@@ -1,0 +1,31 @@
+.navBar {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#homeLink {
+    position: relative;
+    right: 80%;
+    top: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#homeLogin,
+#homeSignup {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
+.loginSignup {
+    position: relative;
+    top: 40px;
+    color: white;
+    right: 300px;
+}

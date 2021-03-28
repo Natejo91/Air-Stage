@@ -5,7 +5,8 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
-
+import './index.css';
+import stage from './images/airstagehome2.jpg';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,17 +17,20 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path='/login'>
-            <LoginFormPage />
-          </Route>
-          <Route path='/signup'>
-            <SignupFormPage />
-          </Route>
-        </Switch>
+      <div className='headBanner'>
+        <Navigation isLoaded={isLoaded} />
+        {isLoaded && (
+          <Switch>
+            <Route path='/login'>
+              <LoginFormPage />
+            </Route>
+            <Route path='/signup'>
+              <SignupFormPage />
+            </Route>
+          </Switch>
       )}
+        <img src={stage} alt='Concert stage' />
+      </div>
     </>
   );
 }
