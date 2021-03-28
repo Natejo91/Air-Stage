@@ -1,31 +1,54 @@
 .navBar {
+    position: fixed;
+    z-index: 100;
     list-style-type: none;
     display: flex;
-    justify-content: flex-end;
 }
 
 #homeLink {
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
     position: relative;
-    right: 80%;
-    top: 40px;
+    top: 10px;
+    left: 50%;
+    padding: 20px;
     color: white;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
     text-decoration: none;
 }
 
 #homeLogin,
 #homeSignup {
+    position: relative;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     text-decoration: none;
 }
 
+#homeLogin:hover,
+#homeSignup:hover {
+
+}
 
 .loginSignup {
     position: relative;
-    top: 40px;
-    color: white;
-    right: 300px;
+    display: flex;
+    align-items: center;
+    top: 10px;
+    left: 210%;
+    background-color: black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#musicIcon {
+    position: relative;
+    left: 3%;
+    height: 80px;
+    width: 90px;
+
 }

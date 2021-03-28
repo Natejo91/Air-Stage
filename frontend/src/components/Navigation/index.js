@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import icon from '../../images/Music.png';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -22,9 +23,13 @@ function Navigation({ isLoaded }) {
     return (
         <ul>
             <li className='navBar'>
-                <NavLink exact to='/' id='homeLink'>AirStage</NavLink>
+                <NavLink exact to='/' id='homeLink'>
+                    AirStage
+                    <img src={icon} alt='AirStage Icon' id='musicIcon'/>
+                </NavLink>
                 {isLoaded && sessionLinks}
             </li>
+
         </ul>
     );
 }

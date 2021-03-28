@@ -4,11 +4,11 @@ body {
     background-color: black;
 }
 
-img {
+#stageImg {
     position: relative;
     max-width: 85%;
     max-height: 90%;
-    top: 50px;
-    left: 100px;
-    border-radius: 2%;
+    top: 130px;
+    left: 140px;
+    border-radius: 1.5%;
 }

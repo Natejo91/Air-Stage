@@ -29,7 +29,11 @@ function App() {
             </Route>
           </Switch>
       )}
-        <img src={stage} alt='Concert stage' />
+        <img src={stage} alt='Concert stage' id='stageImg'/>
+      </div>
+      <div>
+        <h2>hello</h2>
+        <p> TESTINGGGGGGG</p>
       </div>
     </>
   );
