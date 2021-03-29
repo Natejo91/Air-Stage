@@ -17,8 +17,7 @@ function App() {
 
   return (
     <>
-      <div className='headBanner'>
-        <Navigation isLoaded={isLoaded} />
+      <Navigation isLoaded={isLoaded} className='navBar' />
         {isLoaded && (
           <Switch>
             <Route path='/login'>
@@ -30,7 +29,6 @@ function App() {
           </Switch>
       )}
         <img src={stage} alt='Concert stage' id='stageImg'/>
-      </div>
     </>
   );
 }

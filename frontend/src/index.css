@@ -8,7 +8,17 @@ body {
     position: relative;
     max-width: 85%;
     max-height: 90%;
-    top: 130px;
+    top: 90px;
     left: 140px;
     border-radius: 1.5%;
+}
+
+.navBar {
+    position: fixed;
+    width: 95%;
+    height: 90px;
+    z-index: 100;
+    list-style-type: none;
+    background-color: black;
+    border-radius: 3px;
 }

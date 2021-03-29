@@ -15,14 +15,8 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <div className='loginSignup'>
-                <div className='navLoginSignup'>
-                    <div>
-                        <NavLink to='/login' id='homeLogin'>Log In</NavLink>
-                    </div>
-                    <div>
-                        <NavLink to='/signup' id='homeSignup'>Sign Up</NavLink>
-                    </div>
-                </div>
+                <NavLink to='/login' id='homeLogin'>Log In</NavLink>
+                <NavLink to='/signup' id='homeSignup'>Sign Up</NavLink>
             </div>
         );
     }

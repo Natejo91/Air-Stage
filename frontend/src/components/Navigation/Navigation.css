@@ -1,18 +1,8 @@
-.navBar {
-    position: relative;
-    z-index: 100;
-    list-style-type: none;
-    display: flex;
-}
-
 #homeLink {
-    background-color: rgb(0, 0, 0);
+    position: relative;
+    left: 10%;
+    bottom: 10px;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 30px;
-    left: 15%;
     padding: 20px;
     color: white;
     font-size: 40px;
@@ -26,7 +16,6 @@
 }
 
 #homeSignup {
-    position: fixed;
     color: white;
     font-weight: bold;
     font-size: 30px;
@@ -37,7 +26,6 @@
 }
 
 #homeLogin {
-    position: fixed;
     color: white;
     font-weight: bold;
     font-size: 30px;
@@ -53,20 +41,36 @@
 }
 
 .loginSignup {
-    background-color: black;
-    border-radius: 20px;
-    padding: 20px;
+    position: relative;
+    bottom: 45px;
+    left: 81%;
 }
 
 #musicIcon {
     position: relative;
-    left: 3%;
-    height: 80px;
+    top: 20px;
+    height: 70px;
     width: 90px;
 }
 
-.navLoginSignup {
-    position: absolute;
-    display: flex;
-    top: 65px;
+.profileButton {
+    position: relative;
+    left: 85%;
+    bottom: 30px;
+}
+
+.profile-dropdown {
+    position: relative;
+    bottom: 50px;
+    list-style-type: none;
+}
+
+#profileUsername {
+    color: white;
+    font-size: 20px;
+}
+
+#profileEmail {
+    color: white;
+    font-size: 20px;
 }
