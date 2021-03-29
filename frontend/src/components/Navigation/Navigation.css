@@ -55,12 +55,13 @@
 
 .profileButton {
     position: relative;
-    left: 85%;
+    left: 83%;
     bottom: 30px;
 }
 
 .profile-dropdown {
     position: relative;
+    left: 25px;
     bottom: 50px;
     list-style-type: none;
 }
