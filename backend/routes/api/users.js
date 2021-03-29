@@ -9,6 +9,14 @@ const { User } = require('../../db/models');
 const router = express.Router();
 
 const validateSignup = [
+    check('firstname')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage('First name must be less than 50 characters'),
+    check('lastname')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage('Last name must be less than 50 characters'),
     check('email')
         .exists({ checkFalsy: true })
         .isEmail()
@@ -25,6 +33,18 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .isLength({ min: 6 })
         .withMessage('Password must be 6 characters or more.'),
+    check('address')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 255 })
+        .withMessage('Address must not be more than 255 characters'),
+    check('city')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage('City must not be more than 50 characters'),
+    check('state')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage('State name must not be more than 50 characters'),
     handleValidationErrors,
 ];
 
@@ -32,8 +52,8 @@ router.post(
     '',
     validateSignup,
     asyncHandler(async (req, res) => {
-        const { email, password, username } = req.body;
-        const user = await User.signup({ email, username, password });
+        const { email, password, username, firstname, lastname, address, city, state } = req.body;
+        const user = await User.signup({ email, username, password, firstname, lastname, address, city, state });
 
         await setTokenCookie(res, user);
 
