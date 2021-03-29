@@ -11,8 +11,6 @@ module.exports = {
           address: '1200 W Hillford Ave',
           city: 'Michigan City',
           state: 'Michigan',
-          createdAt: new Date(),
-          updatedAt: new Date()
         }
       ], {});
   },
