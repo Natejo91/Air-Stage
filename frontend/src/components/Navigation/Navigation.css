@@ -75,3 +75,28 @@
     color: white;
     font-size: 20px;
 }
+
+#venueLink {
+    position: relative;
+    left: 24.60%;
+    bottom: 70px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#venueLink:hover {
+    color: rgb(73, 16, 16);
+    transition: .5s;
+}
+
+#venueLoggedIn {
+    position: fixed;
+    left: 23.40%;
+    top: 43.5px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}

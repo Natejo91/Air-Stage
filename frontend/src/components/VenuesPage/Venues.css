@@ -1,6 +1,7 @@
 #venueContainer {
-    margin-top: 5%;
+    position: relative;
+    top: 500px;
     background-color: white;
-    height: 300px;
+    /* height: 200px; */
     width: 100%;
 }
