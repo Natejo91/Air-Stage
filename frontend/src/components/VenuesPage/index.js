@@ -2,7 +2,6 @@ import { getVenues } from '../../store/venue';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
 import './Venues.css';
 
 function VenuesPage() {
@@ -17,7 +16,6 @@ function VenuesPage() {
     });
 
     let sessionLinks;
-    if (sessionUser) {
         sessionLinks = (
             <ul>
                 {venues?.map(venue => (
@@ -29,15 +27,8 @@ function VenuesPage() {
                 ))}
             </ul>
         )
-    } else {
-        sessionLinks = (
-            <Redirect to='/login'/>
-        )
-    }
-
     return (
         <div id='venueContainer'>
-            <h1>Venues</h1>
             {sessionLinks}
         </div>
     )

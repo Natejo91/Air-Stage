@@ -32,7 +32,7 @@ function App() {
             </Route>
           </Switch>
       )}
-      {/* <img src={stage} alt='Concert stage' id='stageImg'/> */}
+      <img src={stage} alt='Concert stage' id='stageImg'/>
     </>
   );
 }
