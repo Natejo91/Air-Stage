@@ -30,7 +30,7 @@ function App() {
           </Switch>
       )}
       <img src={stage} alt='Concert stage' id='stageImg'/>
-      <VenuesPage />
+      <VenuesPage className='venuesComponent'/>
     </>
   );
 }

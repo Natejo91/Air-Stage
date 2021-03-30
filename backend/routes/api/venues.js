@@ -1,15 +1,14 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
-const { check } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
-
-const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { Venue } = require('../../db/models');
+const db = require('../../db/models');
 
 const router = express.Router();
 
-router.get('/', asyncHandler(async (req, res) => {
-
+router.get('', asyncHandler(async (req, res) => {
+    const venues = await db.Venue.findAll();
+    return res.json(venues);
 }));
+
+
 
 module.exports = router;
