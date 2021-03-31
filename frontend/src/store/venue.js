@@ -29,22 +29,24 @@ export const getVenues = () => async (dispatch) => {
     const response = await csrfFetch('/api/venues');
     if (response.ok) {
         const list = await response.json();
-        // console.log(list, '****************')
+        console.log(list, '****************')
         dispatch(load(list));
     }
 };
 
-const venueReducer = (state = {}, action) => {
+const venueReducer = (state = null, action) => {
     switch (action.type) {
         case LOAD: {
             const allVenues = {};
             action.list.forEach((venue) => {
                 allVenues[venue.id] = venue;
             });
-            return {
-                ...allVenues,
-                ...state,
-            }
+            // return {
+            //     ...allVenues,
+            //     ...state,
+            // }
+            console.log(allVenues)
+            return allVenues;
         }
         default:
             return state;

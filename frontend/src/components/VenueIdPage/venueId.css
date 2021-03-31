@@ -1,5 +1,6 @@
-#venueId {
+#venue-id {
     position: relative;
-    background-color: white;
+    color: white;
     height: 100px;
+    z-index: 120;
 }
