@@ -16,15 +16,15 @@ function SearchBar() {
     }
 
     return (
-        <div className='search-bar'>
+        <div id='search-bar'>
             <form onSubmit={(e) => handleSubmit(e)}>
+                <button id='search-button' onClick={(e) => handleSubmit(e)} type='submit'>Search</button>
                 <input
                     value={search}
                     name='search'
                     placeholder='Search...'
                     onChange={(e) => setSearch(e.target.value)}
                     />
-                <button onClick={(e) => handleSubmit(e)} type='submit'>Search</button>
             </form>
         </div>
     );

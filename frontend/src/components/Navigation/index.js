@@ -13,7 +13,6 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <ProfileButton user={sessionUser} />
-                <NavLink to='/venues' id='venueLoggedIn'>Venues</NavLink>
             </>
         );
     } else {
@@ -22,23 +21,28 @@ function Navigation({ isLoaded }) {
                 <div className='loginSignup'>
                     <NavLink to='/login' id='homeLogin'>Log In</NavLink>
                     <NavLink to='/signup' id='homeSignup'>Sign Up</NavLink>
-                    <NavLink to='/venues' id='venueLink'>Venues</NavLink>
-                    <SearchBar />
                 </div>
             </>
         );
     }
     return (
-        <ul>
-            <li className='navBar'>
-                <NavLink exact to='/' id='homeLink'>
-                    AirStage
-                    <img src={icon} alt='AirStage Icon' id='musicIcon'/>
-                </NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-
-        </ul>
+        <>
+            <ul>
+                <li className='navBar'>
+                    <NavLink exact to='/' id='homeLink'>
+                        AirStage
+                        <img src={icon} alt='AirStage Icon' id='musicIcon'/>
+                    </NavLink>
+                    {isLoaded && sessionLinks}
+                </li>
+                <li id='search-bar'>
+                    <SearchBar />
+                </li>
+                <li className='venue-bar'>
+                    <NavLink to='/venues' id='venue-nav'>Venues</NavLink>
+                </li>
+            </ul>
+        </>
     );
 }
 

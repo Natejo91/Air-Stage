@@ -43,7 +43,7 @@
 .loginSignup {
     position: relative;
     bottom: 45px;
-    left: 79%;
+    left: 81.5%;
 }
 
 #musicIcon {
@@ -55,8 +55,8 @@
 
 .profileButton {
     position: relative;
-    left: 83%;
-    bottom: 30px;
+    left: .5%;
+    bottom: 35px;
 }
 
 .profile-dropdown {
@@ -76,16 +76,9 @@
     font-size: 20px;
 }
 
-#venueLink {
-    position: relative;
-    right: 40.60%;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-}
 
-#venueLink:hover {
+#venueLink:hover,
+#venue-nav:hover {
     color: rgb(73, 16, 16);
     transition: .5s;
 }
@@ -98,4 +91,38 @@
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
+}
+
+#not-logged-in-nav {
+    position: relative;
+    bottom: 45px;
+    left: 40%;
+    /* color: white; */
+}
+
+#search-bar {
+    position: relative;
+    list-style-type: none;
+
+    max-width: 1%;
+    left: 82%;
+    top: 50px;
+    z-index: 150;
+}
+
+.venue-bar {
+    position: relative;
+    max-width: 60px;
+    top: 45px;
+    list-style-type: none;
+    text-decoration: none;
+    left: 48.5%;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 150;
+}
+
+#venue-nav {
+    color: white;
+    text-decoration: none;
 }

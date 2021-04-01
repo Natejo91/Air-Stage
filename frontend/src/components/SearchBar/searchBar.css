@@ -1,4 +1,10 @@
-.search-bar {
-    position: relative;
+#search-bar {
+    position: fixed;
     right: 67.85%;
+}
+
+#search-button {
+    position: relative;
+    left: 126px;
+    bottom: 1px;
 }
