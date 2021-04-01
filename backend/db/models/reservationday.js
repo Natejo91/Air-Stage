@@ -9,10 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    concertDate: {
-      type: DataTypes.DATE,
-      allowNull: false
-    }
   }, {});
   ReservationDay.associate = function(models) {
     // associations can be defined here

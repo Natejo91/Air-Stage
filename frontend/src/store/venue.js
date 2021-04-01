@@ -33,7 +33,7 @@ export const getVenues = () => async (dispatch) => {
     }
 };
 
-const venueReducer = (state = null, action) => {
+const venueReducer = (state = {}, action) => {
     switch (action.type) {
         case LOAD: {
             const allVenues = {};

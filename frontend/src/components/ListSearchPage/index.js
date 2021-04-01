@@ -15,7 +15,7 @@ function ListSearchPage() {
 
                         <li key={`li-${venue.id}`}>
                             {venue.title}
-                            <NavLink to={`/search/${venue.id}`} key={venue.id}>
+                            <NavLink to={`/venues/${venue.id}`} key={venue.id}>
                                 <img id='venue-image' src={venue.bookingImgUrl} alt='venue'/>
                             </NavLink>
                         </li>

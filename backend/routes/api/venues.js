@@ -11,7 +11,7 @@ router.get('', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
     const venue = await db.Venue.findByPk(req.params.id)
-    return res.json({venue});
+    return res.json(venue);
 }))
 
 module.exports = router;

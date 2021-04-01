@@ -9,6 +9,7 @@ import configureStore from './store';
 import * as sessionActions from './store/session';
 import * as venueActions from './store/venue';
 import * as searchActions from './store/search';
+import * as reservationActions from './store/bookingVenue';
 
 const store = configureStore();
 
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
   window.venueActions = venueActions;
   window.searchActions = searchActions;
+  window.reservationActions = reservationActions;
 }
 
 function Root() {

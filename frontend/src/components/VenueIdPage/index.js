@@ -1,19 +1,48 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { bookReservation } from '../../store/bookingVenue';
+import { useParams, useHistory } from 'react-router-dom';
+import { getVenue } from '../../store/venue';
 import './venueId.css';
 
 function VenueIdPage() {
     const { id } = useParams();
-
+    const sessionUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    useEffect(() => {
+        dispatch(getVenue(id));
+    }, [dispatch, id])
 
     const venue = useSelector(state => {
         return state.venue[id];
     })
 
+
+    const userId = useSelector(state => {
+        return state.session.user?.id
+    })
+
+    // console.log(userId)
+    // console.log(venueId)
+
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        dispatch(bookReservation(userId, id))
+        history.push('/');
     }
+
+    let sessionLinks;
+    if (sessionUser) {
+        sessionLinks = (
+            <>
+                <button className='booking-button' onClick={(e) => handleSubmit(e)}>Book Venue</button>
+            </>
+        );
+    }
+
+    if (!venue) return null;
 
     return (
         <>
@@ -30,7 +59,7 @@ function VenueIdPage() {
                     <li>{venue.state}</li>
                 </ul>
                 <img className='venue-image' src={venue.bookingImgUrl} alt='Venue'/>
-                <button className='booking-button' onClick={(e) => handleSubmit(e)}>Book Venue</button>
+                {sessionLinks}
             </div>
         </>
 
