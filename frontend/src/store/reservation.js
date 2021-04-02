@@ -7,11 +7,17 @@
 import { csrfFetch } from './csrf';
 
 const SET_RESERVATION = 'booking/setReservation';
+const GET_RESERVATION = 'booking/getReservation';
 
 const setReservation = (userId, venueId) => ({
         type: SET_RESERVATION,
         payload: { userId, venueId }
 });
+
+const getRes = (userId) => ({
+    type: GET_RESERVATION,
+    userId
+})
 
 export const bookReservation = (reserverId, venueId) => async (dispatch) => {
     const response = await csrfFetch(`/api/reservations`, {
@@ -24,6 +30,14 @@ export const bookReservation = (reserverId, venueId) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         return dispatch(setReservation(data))
+    }
+}
+
+export const getReservation = (userId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reservations/${userId}`);
+    if (response.ok) {
+        const data = await response.json();
+        return dispatch(getRes(data));
     }
 }
 

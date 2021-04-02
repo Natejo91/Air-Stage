@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import searchReducer from "./search";
 import sessionReducer from './session';
 import venueReducer from './venue';
-import reservationReducer from './bookingVenue';
+import reservationReducer from './reservation';
 
 const rootReducer = combineReducers({
   // add reducer functions here

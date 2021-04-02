@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import SearchBar from '../SearchBar';
+import ReservationsPage from '../ReservationsPage';
 import './Navigation.css';
 import icon from '../../images/Music.png';
 
@@ -13,6 +14,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <ProfileButton user={sessionUser} />
+                <ReservationsPage user={sessionUser}/>
             </>
         );
     } else {

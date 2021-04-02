@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { bookReservation } from '../../store/bookingVenue';
+import { bookReservation } from '../../store/reservation';
 import { useParams, useHistory } from 'react-router-dom';
 import { getVenue } from '../../store/venue';
 import './venueId.css';
