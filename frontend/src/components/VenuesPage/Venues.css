@@ -17,3 +17,7 @@
 .venue-title {
     color: white;
 }
+
+.li-item {
+    list-style-type: none;
+}

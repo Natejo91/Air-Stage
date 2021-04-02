@@ -9,9 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    concertDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    }
   }, {});
   ReservationDay.associate = function(models) {
-    ReservationDay.belongsTo(models.User, {foreignKey: 'reserverId'});
+    // ReservationDay.belongsTo(models.User, {foreignKey: 'reserverId'});
     ReservationDay.belongsTo(models.Venue, {foreignKey: 'venueId'});
     // associations can be defined here
   };

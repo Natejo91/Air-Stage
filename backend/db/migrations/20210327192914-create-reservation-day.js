@@ -13,6 +13,10 @@ module.exports = {
         allowNull: false,
         references: { model: 'Users'}
       },
+      concertDate: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
       venueId: {
         type: Sequelize.INTEGER,
         allowNull: false,

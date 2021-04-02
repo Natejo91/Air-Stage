@@ -12,22 +12,24 @@ function ReservationsPage() {
         dispatch(getReservation(state))
     }, [dispatch, state])
 
-    const reservations = useSelector(state => state.reservation)
-    console.log(reservations);
+    const reservationObjects = useSelector(state => state.reservation);
 
-    if (!reservations) return null;
+    if (!reservationObjects) return null;
+
+    const reservations = Object.values(reservationObjects);
 
     return (
         <div className='reservation'>
             <ul>
                 <li>Reservation</li>
-                {/* {reservations?.map(item => (
-                    <li key={`li-${item}`}>
-                        <NavLink to={`/venues/${item.venueId}`} key={item.venueId}>
-                            <img src={item.bookingImgUrl} alt='booking'/>
+                {reservations.map((item, i) => (
+                    <li key={`li-${item.createdAt}`}>
+                        <NavLink to={`/venues/${item.venueId}`} key={i}>
+                            HEY
+                            {/* <img src={item.bookingImgUrl} alt='booking'/> */}
                         </NavLink>
                     </li>
-                ))} */}
+                ))}
             </ul>
         </div>
     )

@@ -1,0 +1,11 @@
+.reviews-list {
+    border: 1px solid black;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.review-items {
+    display: flex;
+}

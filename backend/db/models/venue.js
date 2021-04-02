@@ -29,10 +29,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    concertDate: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
     bookingImgUrl: {
       type: DataTypes.TEXT,
       allowNull: false

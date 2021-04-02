@@ -9,22 +9,23 @@ import { csrfFetch } from './csrf';
 const SET_RESERVATION = 'booking/setReservation';
 const GET_RESERVATION = 'booking/getReservation';
 
-const setReservation = (userId, venueId) => ({
-        type: SET_RESERVATION,
-        payload: { userId, venueId }
+const setReservation = (newRes) => ({
+    type: SET_RESERVATION,
+    newRes
 });
 
-const getRes = (userId) => ({
+const getRes = (reservations) => ({
     type: GET_RESERVATION,
-    userId
+    reservations
 })
 
-export const bookReservation = (reserverId, venueId) => async (dispatch) => {
+export const bookReservation = (reserverId, venueId, date) => async (dispatch) => {
     const response = await csrfFetch(`/api/reservations`, {
         method: 'POST',
         body: JSON.stringify({
             venueId,
-            reserverId
+            reserverId,
+            date
         })
     })
     if (response.ok) {
@@ -46,14 +47,23 @@ export const getReservation = (userId) => async (dispatch) => {
 // need reducer here
 
 const reservationReducer = (state = {}, action) => {
-    let newState;
+    let newState = {};
     switch (action.type) {
         case SET_RESERVATION:
-            newState = action.payload;
+            newState = {...state}
+            const key = Object.values(state).length + 1;
+            newState[key] = action.newRes
             return newState;
         case GET_RESERVATION:
-            newState = action.userId;
+            const array = action.reservations;
+            console.log(array);
+            for (let i = 0; i < array.length; i++) {
+                // let key = array[i].id;
+                newState[i + 1] = array[i]
+            }
+            console.log(newState);
             return newState;
+
         default:
             return state;
     }
