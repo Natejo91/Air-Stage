@@ -22,6 +22,7 @@ export const getVenue = (id) => async (dispatch) => {
     if (response.ok) {
         const venue = await response.json();
         dispatch(getOneVenue(venue));
+        return venue;
     }
 }
 
@@ -30,6 +31,7 @@ export const getVenues = () => async (dispatch) => {
     if (response.ok) {
         const list = await response.json();
         dispatch(load(list));
+        return list;
     }
 };
 

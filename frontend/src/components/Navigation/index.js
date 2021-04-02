@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <ProfileButton user={sessionUser} />
-                <ReservationsPage user={sessionUser}/>
+                <ReservationsPage />
             </>
         );
     } else {

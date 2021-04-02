@@ -60,9 +60,11 @@ export const signUp = (user) => async (dispatch) => {
             state
         }),
     })
-    const data = await response.json();
-    dispatch(setUser(data.user));
-    return response;
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setUser(data.user));
+      return response;
+    }
 }
 
 const initialState = { user: null };

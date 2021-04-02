@@ -36,7 +36,9 @@ export const bookReservation = (reserverId, venueId) => async (dispatch) => {
 export const getReservation = (userId) => async (dispatch) => {
     const response = await csrfFetch(`/api/reservations/${userId}`);
     if (response.ok) {
+        console.log(response);
         const data = await response.json();
+        console.log(data);
         return dispatch(getRes(data));
     }
 }
@@ -47,11 +49,14 @@ const reservationReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {
         case SET_RESERVATION:
-        newState = action.payload;
-        return newState;
+            newState = action.payload;
+            return newState;
+        case GET_RESERVATION:
+            newState = action.userId;
+            return newState;
         default:
             return state;
-        }
+    }
 }
 
 export default reservationReducer;
