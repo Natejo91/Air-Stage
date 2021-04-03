@@ -23,7 +23,7 @@ function VenuesPage() {
                 <ul>
                     {Object.values(venues).map((venue, i) => (
                         <li key={`li-${venue.id}`}>
-                            <span className='venue-title'>{venue.title}</span>
+                            <span className='venue-title' key={`span-${i}`}>{venue.title}</span>
                             <NavLink to={`/venues/${venue.id}`} key={i}>
                                 <img id='venue-image' src={venue.bookingImgUrl} alt='Venue'/>
                             </NavLink>

@@ -9,7 +9,6 @@ const Op = Sequelize.Op
 router.get('/:id', asyncHandler(async (req, res) => {
     const id  = req.params.id;
     const reviews = await Review.findAll({where: { venueId: id }})
-    console.log(reviews);
     return res.json(reviews);
 }))
 
@@ -35,8 +34,14 @@ router.post('/', asyncHandler(async (req, res) => {
     return res.json(review);
 }))
 
-router.patch('/:id', asyncHandler(async (req, res) => {
-    const userId = req.params.id;
+
+router.put('/:id', asyncHandler(async (req, res) => {
+    const reviewId = req.params.id;
+    const { userId, venueId, title, body, rating, reviewImgUrl,  } = req.body;
+
+    const review = await Review.findByPk(reviewId);
+    return res.json(review);
+
 }))
 
 module.exports = router;

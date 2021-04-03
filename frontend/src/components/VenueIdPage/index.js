@@ -56,7 +56,7 @@ function VenueIdPage() {
             <div className='venue-id'>
                 {console.log(venue, 'venueIdPage')}
                 <h2>{venue.title}</h2>
-                <ul className='venueList'>
+                <ul className='venueList' key={venue.id}>
                     <li className='li-item'>{venue.description}</li>
                     <li className='li-item'>{venue.maxGuests}</li>
                     <li className='li-item'>${venue.dailyCost}</li>
@@ -66,7 +66,7 @@ function VenueIdPage() {
                     <li className='li-item'>{venue.state}</li>
                 </ul>
                 <img className='venue-image' src={venue.bookingImgUrl} alt='Venue'/>
-                <Reviews />
+                <Reviews venueId={id}/>
                 {sessionLinks}
             </div>
         </>

@@ -7,6 +7,7 @@ import VenuesPage from './components/VenuesPage';
 import ListSearchPage from './components/ListSearchPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
+import ReviewCreatePage from './components/ReviewCreatePage';
 import VenueIdPage from './components/VenueIdPage';
 import './index.css';
 import stage from './images/airstagehome2.jpg';
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route exact path='/list'>
               <ListSearchPage />
+            </Route>
+            <Route exact path='/reviews'>
+              <ReviewCreatePage />
             </Route>
           </Switch>
       )}

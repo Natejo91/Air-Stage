@@ -24,7 +24,6 @@ router.get('/:location', asyncHandler(async (req, res) => {
             }
         }
     })
-    console.log(venues)
     return res.json(venues);
 
 }))

@@ -1,17 +1,35 @@
 import { csrfFetch } from './csrf';
 
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
-const SET_REVIEW = 'reviews/SET_REVIEW';
+const SET_REVIEWS = 'reviews/SET_REVIEWS';
+const EDIT_REVIEWS = 'reviews/EDIT_REVIEWS'
 
 const setReview = (reviews) => ({
-    type: SET_REVIEW,
-    payload: reviews
+    type: SET_REVIEWS,
+    reviews
 })
 
 const loadReviews = list => ({
     type: GET_REVIEWS,
     list
 })
+
+const editRev = (reviewEdit) => ({
+    type: EDIT_REVIEWS,
+    reviewEdit
+})
+
+export const editReview = (review) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews/${review.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ review })
+    });
+    if (response.ok) {
+        const updatedReview = await response.json();
+        dispatch(editRev(updatedReview));
+        return updatedReview;
+    }
+}
 
 export const getReviews = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews/${id}`);
@@ -52,8 +70,8 @@ const reviewReducer = (state = {}, action) => {
             });
             return allReviews;
         }
-        case SET_REVIEW:
-            const reviews = action.payload;
+        case SET_REVIEWS:
+            const reviews = action.reviews;
             const newReview = {};
 
             for(const review of reviews) {
