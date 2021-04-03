@@ -30,10 +30,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      reviewImgUrl: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

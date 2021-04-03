@@ -1,21 +1,31 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
+import { createReview} from '../../store/review';
 import './ReviewCreatePage.css';
 
 
 
-function ReviewCreatePage({ venueId }) {
+function ReviewCreatePage() {
+    const { id } = useParams();
+    const venueId = id;
+    const history = useHistory();
+    const dispatch = useDispatch()
     const [ title, setTitle ] = useState('');
     const [ body, setBody ] = useState('');
     const [ rating, setRating ] = useState('');
-    const [ reviewImgUrl, setReviewImgUrl ] = useState('');
-    const history = useHistory();
-
+    const [ validationErrors, setValidationErrors ] = useState([]);
+    const userId = useSelector((state) => state.session.user.id);
     console.log('in reviewcreatepage')
 
     const handleSubmit = (e) => {
-        e.preventDefault(e);
+        e.preventDefault();
+        setValidationErrors([]);
+        dispatch(createReview({title, body, rating, venueId, userId}))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setValidationErrors(data.errors);
+            });
         history.push('/');
     }
 
@@ -23,6 +33,13 @@ function ReviewCreatePage({ venueId }) {
         <div className='review-container'>
             <form onSubmit={handleSubmit} className='reviewForm'>
                 <h2 id='createReview'>Create a Review</h2>
+                <ul>
+                    {validationErrors.map((error, i) => (
+                        <li key={i}>
+                            {error}
+                        </li>
+                    ))}
+                </ul>
                 <label>
                 Title
                 <input
@@ -50,16 +67,7 @@ function ReviewCreatePage({ venueId }) {
                     required
                 />
                 </label>
-                <label>
-                Image
-                <input
-                    type="text"
-                    value={reviewImgUrl}
-                    onChange={(e) => setReviewImgUrl(e.target.value)}
-                    required
-                />
-                </label>
-                <button onClick={(e) => handleSubmit(e)}>Submit</button>
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )

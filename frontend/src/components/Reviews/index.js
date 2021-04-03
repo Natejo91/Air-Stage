@@ -2,50 +2,68 @@ import './Reviews.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { editReview, createReview } from '../../store/review';
-import { NavLink, Route, useHistory } from 'react-router-dom';
+import { NavLink, Route, useHistory, useParams } from 'react-router-dom';
 
 
 
-function Reviews({ id }) {
-    const dispatch = useDispatch();
+function Reviews() { //this is venueId
+    const { id } = useParams();
+    // const dispatch = useDispatch();
     const reviews = useSelector(state => state.review)
     const history = useHistory();
+    const user = useSelector(state => state.session.user);
     console.log(reviews)
 
 
 
 
-    useEffect(() => {
-        // dispatch(editReview());
-        // dispatch(createReview());
-    }, [dispatch, ])
+    // useEffect(() => {
+    //     // dispatch(editReview());
+    // }, [dispatch, ])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.push('/reviews');
+        if (user) {
+            history.push(`/reviews/${id}`);
+
+        } else {
+            history.push('/login');
+        }
+
+    }
+
+    if (!reviews) return null;
+
+    let sessionLinks;
+    if (user) {
+        sessionLinks = (
+            <>
+                <button onClick={handleSubmit}>
+                    Create a Review here!
+                </button>
+            </>
+        )
     }
 
     return (
-        <div>
+        <div className='reviews-container'>
             <h2>REVIEWS</h2>
-            <ul className='reviews-list'>
-                {Object.values(reviews).map(review => (
+            <ul className='reviews-list' key={reviews.id}>
+                {Object.values(reviews).map((review, i) => (
                     <>
-                        <li key={review.title}>
+                        <li key={`li1-${i}`}>
                             {review.title}
                         </li>
-                        <li key={review.body}>
+                        <li key={`li2-${i}`}>
                             {review.body}
                         </li>
-                        <li key={review.rating}>
+                        <li key={`li3-${i}`}>
                             Rating: {review.rating}
                         </li>
                     </>
                 ))}
             </ul>
-            <button onClick={handleSubmit}>
-                Create a Review here!
-            </button>
+            {sessionLinks}
         </div>
     )
 };

@@ -39,7 +39,7 @@ function App() {
             <Route exact path='/list'>
               <ListSearchPage />
             </Route>
-            <Route exact path='/reviews'>
+            <Route exact path='/reviews/:id'>
               <ReviewCreatePage />
             </Route>
           </Switch>

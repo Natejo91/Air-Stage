@@ -2,7 +2,8 @@ import { csrfFetch } from './csrf';
 
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const SET_REVIEWS = 'reviews/SET_REVIEWS';
-const EDIT_REVIEWS = 'reviews/EDIT_REVIEWS'
+const EDIT_REVIEWS = 'reviews/EDIT_REVIEWS';
+const DELETE_REVIEWS = 'reviews/DELETE_REVIEWS';
 
 const setReview = (reviews) => ({
     type: SET_REVIEWS,
@@ -19,15 +20,20 @@ const editRev = (reviewEdit) => ({
     reviewEdit
 })
 
+const deleteRev = (reviewId) => ({
+    type: DELETE_REVIEWS,
+    reviewId
+})
+
 export const editReview = (review) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews/${review.id}`, {
+    const { id, title, body, rating } = review;
+    const response = await csrfFetch(`/api/reviews/${id}`, {
         method: 'PATCH',
-        body: JSON.stringify({ review })
+        body: JSON.stringify({ title, body, rating })
     });
     if (response.ok) {
         const updatedReview = await response.json();
         dispatch(editRev(updatedReview));
-        return updatedReview;
     }
 }
 
@@ -41,7 +47,7 @@ export const getReviews = (id) => async (dispatch) => {
 }
 
 export const createReview = (review) => async (dispatch) => {
-    const { userId, venueId, title, body, rating, reviewImgUrl } = review;
+    const { userId, venueId, title, body, rating } = review;
     const response = await csrfFetch('/api/reviews', {
         method: 'POST',
         body: JSON.stringify({
@@ -50,7 +56,6 @@ export const createReview = (review) => async (dispatch) => {
             title,
             body,
             rating,
-            reviewImgUrl
         }),
     });
     if (response.ok) {
@@ -58,6 +63,17 @@ export const createReview = (review) => async (dispatch) => {
         dispatch(setReview(data))
         return data;
     }
+}
+
+export const deleteReview = (reviewId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+        method: 'DELETE',
+    })
+    const data = await response.json();
+    console.log(data);
+    dispatch(deleteRev(reviewId))
+    //maybe need to return something here
+    return null;
 }
 
 
@@ -78,6 +94,14 @@ const reviewReducer = (state = {}, action) => {
                 newReview[review.id] = reviews
             }
             return newReview;
+        case EDIT_REVIEWS:
+            const newState = { ...state };
+            newState[action.review.id] = action.review;
+            return newState;
+        case DELETE_REVIEWS:
+            const updatedState = { ...state };
+            delete updatedState[action.reviewId];
+            return updatedState;
         default:
             return state;
     }

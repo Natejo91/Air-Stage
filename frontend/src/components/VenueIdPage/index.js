@@ -42,10 +42,10 @@ function VenueIdPage() {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <>
+            <div id='booking-venue'>
                 <input type='date' name='date' onChange={(e) => setDate(e.target.value) } value={date}></input>
                 <button className='booking-button' onClick={(e) => handleSubmit(e)}>Book Venue</button>
-            </>
+            </div>
         );
     }
 
@@ -56,17 +56,16 @@ function VenueIdPage() {
             <div className='venue-id'>
                 {console.log(venue, 'venueIdPage')}
                 <h2>{venue.title}</h2>
-                <ul className='venueList' key={venue.id}>
-                    <li className='li-item'>{venue.description}</li>
-                    <li className='li-item'>{venue.maxGuests}</li>
-                    <li className='li-item'>${venue.dailyCost}</li>
-                    <li className='li-item'>{venue.address}</li>
-                    <li className='li-item'>{venue.concertDate}</li>
-                    <li className='li-item'>{venue.city}</li>
-                    <li className='li-item'>{venue.state}</li>
+                <ul className='venueList'>
+                    <li className='li-item'>- {venue.description}</li>
+                    <li className='li-item'><strong>Max Guests: </strong>{venue.maxGuests}</li>
+                    <li className='li-item'><strong>$ </strong>{venue.dailyCost}</li>
+                    <li className='li-item'><strong>Address: </strong>{venue.address}</li>
+                    <li className='li-item'><strong>City: </strong>{venue.city}</li>
+                    <li className='li-item'><strong>State: </strong>{venue.state}</li>
                 </ul>
                 <img className='venue-image' src={venue.bookingImgUrl} alt='Venue'/>
-                <Reviews venueId={id}/>
+                <Reviews />
                 {sessionLinks}
             </div>
         </>

@@ -1,16 +1,28 @@
 #venue-search-container {
     position: relative;
-    top: 300px;
-    width: 40%;
-    height: 300px;
-    left: 32%;
-    right: 50%;
-    color: black;
-    z-index: 200;
+    top: 100px;
+    z-index: 50;
+    height: fit-content;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: fit-content;
+    padding-left: 40px;
+    background-color: white;
+    /* box-shadow: 0px 0px 5px 5px rgba(22, 22, 24, 0.6); */
+    border-radius: 15px;
+    left: 12%;
 }
 
 #venue-image {
-    max-height: 400px;
-    max-width: 400px;
+    max-height: 200px;
+    max-width: 200px;
     border-radius: 50%;
+}
+
+.venue-title {
+    display: flex;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
 }

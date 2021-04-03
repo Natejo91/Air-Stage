@@ -14,8 +14,8 @@ function ListSearchPage() {
                     {Object.values(venueSearch).map((venue, i) =>(
 
                         <li key={`li-${i}`}>
-                            {venue.title}
                             <NavLink to={`/venues/${venue.id}`} key={venue.id}>
+                            <span className='venue-title' key={`span-${i}`}>{venue.title}</span>
                                 <img id='venue-image' src={venue.bookingImgUrl} alt='venue'/>
                             </NavLink>
                         </li>

@@ -12,7 +12,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
     return res.json(reviews);
 }))
 
-
+//need validation handler for this post route
 router.post('/', asyncHandler(async (req, res) => {
     const {
         userId,
@@ -35,13 +35,25 @@ router.post('/', asyncHandler(async (req, res) => {
 }))
 
 
-router.put('/:id', asyncHandler(async (req, res) => {
+router.patch('/:id', asyncHandler(async (req, res) => {
     const reviewId = req.params.id;
-    const { userId, venueId, title, body, rating, reviewImgUrl,  } = req.body;
 
+    const { title, body, rating } = req.body;
     const review = await Review.findByPk(reviewId);
-    return res.json(review);
 
+    await review.update({
+        title,
+        body,
+        rating
+    })
+    return res.json(review);
+}))
+
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const reviewId = req.params.id
+    const review = await Review.findByPk(reviewId)
+    review.destroy()
+    return res.json(null)
 }))
 
 module.exports = router;

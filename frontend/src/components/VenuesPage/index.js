@@ -20,11 +20,11 @@ function VenuesPage() {
 
         return (
             <div id='venueContainer'>
-                <ul>
+                <ul className='venue-list'>
                     {Object.values(venues).map((venue, i) => (
-                        <li key={`li-${venue.id}`}>
-                            <span className='venue-title' key={`span-${i}`}>{venue.title}</span>
+                        <li key={`li-${venue.id}`} id='img-navlink'>
                             <NavLink to={`/venues/${venue.id}`} key={i}>
+                                <span className='venue-title' key={`span-${i}`}>{venue.title}</span>
                                 <img id='venue-image' src={venue.bookingImgUrl} alt='Venue'/>
                             </NavLink>
                         </li>
