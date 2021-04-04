@@ -5,10 +5,6 @@
     max-height: 100px;
     max-width: 100px;
     border-radius: 50%;
-    color: white
-
-}
-
-.reservation-list {
-    padding: 15px;
+    color: white;
+    padding-left: 10px;
 }

@@ -27,8 +27,8 @@ function ReservationsPage() {
 
                     <li key={`li-${i}`}>
                         <NavLink to={`/venues/${item.venueId}`} key={i} className='navlink'>
-
-                            {item.concertDate}
+                            {}
+                            {item.concertDate.slice(0, 10)}
                             {/* <img src={item.bookingImgUrl} alt='booking'/> */}
                         </NavLink>
                     </li>

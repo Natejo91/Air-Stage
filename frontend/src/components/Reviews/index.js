@@ -48,21 +48,21 @@ function Reviews() { //this is venueId
     return (
         <div className='reviews-container'>
             <h2>REVIEWS</h2>
-            <ul className='reviews-list' key={reviews.id}>
                 {Object.values(reviews).map((review, i) => (
-                    <>
-                        <li key={`li1-${i}`}>
+                    <ul className='reviews-list' key={i}>
+                        <>
+                            <li key={`li1-${i}`}>
                             {review.title}
-                        </li>
-                        <li key={`li2-${i}`}>
-                            {review.body}
-                        </li>
-                        <li key={`li3-${i}`}>
-                            Rating: {review.rating}
-                        </li>
-                    </>
-                ))}
-            </ul>
+                            </li>
+                            <li key={`li2-${i}`}>
+                                {review.body}
+                            </li>
+                            <li key={`li3-${i}`}>
+                                Rating: {review.rating}
+                            </li>
+                        </>
+                    </ul>
+            ))}
             {sessionLinks}
         </div>
     )

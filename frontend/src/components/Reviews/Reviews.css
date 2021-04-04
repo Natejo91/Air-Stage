@@ -1,7 +1,9 @@
 .reviews-container {
     padding-top: 15px;
     overflow-y: auto;
+    padding-left: 10px;
 }
 
-.reviews-list {
+.reviews {
+    padding-left: 10px;
 }
