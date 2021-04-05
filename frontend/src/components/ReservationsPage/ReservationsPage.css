@@ -8,3 +8,14 @@
     color: white;
     padding-left: 10px;
 }
+
+.navlink {
+    color: white;
+    padding: 3px;
+
+}
+
+#reservation-li:hover {
+    color: rgb(73, 16, 16);
+    transition: .5s;
+}

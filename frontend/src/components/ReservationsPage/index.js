@@ -25,7 +25,7 @@ function ReservationsPage() {
             <ul className='reservation-list'>
                 {reservations.map((item, i) => (
 
-                    <li key={`li-${i}`}>
+                    <li key={`li-${i}`} id='reservation-li'>
                         <NavLink to={`/venues/${item.venueId}`} key={i} className='navlink'>
                             {}
                             {item.concertDate.slice(0, 10)}

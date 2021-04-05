@@ -26,8 +26,6 @@ function App() {
       <HomePage />
         {isLoaded && (
           <Switch>
-            {/* <Route exact path='/'>
-            </Route> */}
             <Route path='/login'>
               <LoginFormPage />
             </Route>
