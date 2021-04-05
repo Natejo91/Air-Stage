@@ -25,6 +25,11 @@ function LoginFormPage() {
                 if (data && data.errors) setErrors(data.errors);
             });
     }
+
+    const handleSubmit2 = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.login({credential: 'Demo-lition', password: 'password'}))
+    }
     return (
         <div className='loginContainer'>
             <form onSubmit={handleSubmit} className='loginForm'>
@@ -56,6 +61,11 @@ function LoginFormPage() {
                 </label>
                 <button type='submit'>Log In</button>
             </form>
+            <div className='demo-login'>
+                <form onSubmit={handleSubmit2}>
+                    <button type='submit' >Demo User</button>
+                </form>
+            </div>
         </div>
     );
 }

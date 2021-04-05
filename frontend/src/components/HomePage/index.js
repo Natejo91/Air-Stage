@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReservationsPage from '../ReservationsPage';
 import UserReviews from '../UserReviews';
-import { getUserReviews } from '../../store/userReviews';
+// import { getUserReviews } from '../../store/userReviews';
 
 function HomePage() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     // const userId = user.id;
 
