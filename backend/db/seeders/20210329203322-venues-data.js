@@ -35,7 +35,7 @@ module.exports = {
         },
         {
           title: 'East Cleveland basement',
-          description: 'Gritty but spacious spot, perfect for house shows. Two apms in-house. Drumset and Yamaha keyboard available upon request. Street parking and garage access on East, overflow seating and smoking area in backyard. BYOB allowed.',
+          description: 'Gritty but spacious spot, perfect for house shows. Two amps in-house. Drumset and Yamaha keyboard available upon request. Street parking and garage access on East, overflow seating and smoking area in backyard. BYOB allowed.',
           maxGuests: '55',
           dailyCost: '40.00',
           address: '11021 East Boulevard',
